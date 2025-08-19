@@ -8,7 +8,9 @@
   <meta property="og:title" content="Mr. Moon | Estratega Financiero"/>
   <meta property="og:description" content="Tu guía para tomar decisiones financieras inteligentes."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:image" content="/img/og-mrmoon.jpg"/>
+  <meta property="og:image" content="img/og-mrmoon.jpg"/>
+  <link rel="canonical" href="https://uristtrelk.github.io/Mr-moon/"/>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
@@ -21,63 +23,102 @@
       --mm-blue:#2F73B6; /* acento */
       --mm-white:#FFFFFF;
     }
-    body{font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';}
-    .serif{font-family:'Merriweather', Georgia, serif}
+    body{font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,'Noto Sans';}
+    .serif{font-family:'Merriweather',Georgia,serif}
+    .glass{backdrop-filter: blur(6px); background: rgba(255,255,255,.08);}
   </style>
 </head>
 <body class="bg-[var(--mm-white)] text-slate-900">
-  <!-- Barra superior -->
-  <header class="w-full bg-[var(--mm-navy)] text-white">
+
+  <!-- NAV sticky -->
+  <header class="sticky top-0 z-50 w-full bg-[var(--mm-navy)]/95 text-white shadow">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <!-- Reemplaza el src con tu logo circular -->
-        <img src="/img/logo-mrmoon.png" alt="Logo Mr. Moon" class="w-10 h-10 rounded-full object-contain bg-white p-1"/>
+        <img src="img/logo-mrmoon.png" alt="Logo Mr. Moon" class="w-9 h-9 rounded-full object-contain bg-white p-1"/>
         <span class="font-bold tracking-wide">MR. MOON</span>
       </div>
       <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
+        <a href="#beneficios" class="hover:opacity-100">Beneficios</a>
         <a href="#servicios" class="hover:opacity-100">Servicios</a>
         <a href="#proceso" class="hover:opacity-100">Proceso</a>
-        <a href="#testimonios" class="hover:opacity-100">Resultados</a>
+        <a href="#casos" class="hover:opacity-100">Resultados</a>
+        <a href="#lead" class="hover:opacity-100">Checklist</a>
         <a href="#faq" class="hover:opacity-100">FAQ</a>
       </nav>
-      <a href="https://wa.me/525532517320?text=Hola%20Roberto%2C%20vengo%20de%20tu%20landing.%20Quiero%20mi%20asesor%C3%ADa%20financiera." class="inline-flex items-center gap-2 bg-[var(--mm-gold)] text-slate-900 font-semibold px-4 py-2 rounded-lg shadow hover:brightness-95">
+      <a href="https://wa.me/525532517320?text=Hola%20Roberto%2C%20vengo%20de%20tu%20landing.%20Quiero%20mi%20asesor%C3%ADa.&utm_source=landing&utm_medium=top_cta&utm_campaign=mrmoon"
+         class="inline-flex items-center gap-2 bg-[var(--mm-gold)] text-slate-900 font-semibold px-4 py-2 rounded-lg shadow hover:brightness-95">
         Agenda por WhatsApp
       </a>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO con credenciales -->
   <section class="bg-[var(--mm-navy)] text-white">
-    <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+    <div class="max-w-6xl mx-auto px-4 pt-12 pb-8 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <h1 class="serif text-4xl md:text-5xl leading-tight">La luna orientaba a los navegantes. <span class="text-[var(--mm-gold)]">Hoy orienta tus finanzas.</span></h1>
-        <p class="mt-4 text-white/90">Soy <strong>Roberto Luna</strong> (Mr. Moon). Te acompaño con claridad y estrategia para proteger tu patrimonio, construir tu retiro e invertir con cabeza.</p>
+        <h1 class="serif text-4xl md:text-5xl leading-tight">
+          La luna orientaba a los navegantes. <span class="text-[var(--mm-gold)]">Hoy orienta tus finanzas.</span>
+        </h1>
+        <p class="mt-4 text-white/90">
+          Soy <strong>Roberto Luna</strong> (Mr. Moon). Te acompaño con claridad y estrategia para proteger tu patrimonio,
+          construir tu retiro e invertir con cabeza.
+        </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="https://wa.me/525532517320?text=Hola%20Roberto%2C%20quiero%20agendar%20una%20asesor%C3%ADa." class="inline-flex items-center justify-center bg-[var(--mm-gold)] text-slate-900 font-semibold px-5 py-3 rounded-lg shadow hover:brightness-95">Agendar asesoría</a>
-          <a href="#lead" class="inline-flex items-center justify-center border border-white/30 text-white px-5 py-3 rounded-lg hover:bg-white/10">Descargar checklist</a>
-        </div>
-        <div class="mt-6 grid grid-cols-3 gap-4 text-sm text-white/80">
-          <div><span class="block text-2xl font-bold text-[var(--mm-gold)]">20+ años</span>en seguros y asistencias</div>
-          <div><span class="block text-2xl font-bold text-[var(--mm-gold)]">$65M</span>manejo de líneas de negocio</div>
-          <div><span class="block text-2xl font-bold text-[var(--mm-gold)]">95%+</span>retención de cartera</div>
+          <a href="https://wa.me/525532517320?text=Hola%20Roberto%2C%20quiero%20agendar%20una%20asesor%C3%ADa.&utm_source=landing&utm_medium=hero_cta&utm_campaign=mrmoon"
+             class="inline-flex items-center justify-center bg-[var(--mm-gold)] text-slate-900 font-semibold px-5 py-3 rounded-lg shadow hover:brightness-95">
+            Agendar asesoría
+          </a>
+          <a href="#lead"
+             class="inline-flex items-center justify-center border border-white/30 text-white px-5 py-3 rounded-lg hover:bg-white/10">
+            Descargar checklist
+          </a>
         </div>
       </div>
-      <div class="bg-[var(--mm-gray)]/40 rounded-2xl p-6 border border-white/10">
-        <!-- Mock gráfico ascendente + luna -->
+      <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+        <!-- Gráfico + luna -->
         <svg viewBox="0 0 400 300" class="w-full h-auto">
           <defs>
             <linearGradient id="g" x1="0" x2="1">
-              <stop offset="0%" stop-color="#D4A937"/>
-              <stop offset="100%" stop-color="#2F73B6"/>
+              <stop offset="0%" stop-color="#D4A937"/><stop offset="100%" stop-color="#2F73B6"/>
             </linearGradient>
           </defs>
           <rect x="0" y="0" width="400" height="300" fill="#0f2340" rx="16"/>
-          <circle cx="320" cy="60" r="34" fill="#D4A937"/>
-          <circle cx="330" cy="60" r="34" fill="#0f2340"/>
+          <circle cx="320" cy="60" r="34" fill="#D4A937"/><circle cx="330" cy="60" r="34" fill="#0f2340"/>
           <polyline points="40,240 110,200 170,210 230,160 290,170 350,120" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round"/>
           <polygon points="350,120 340,130 360,130" fill="#D4A937"/>
         </svg>
         <p class="mt-3 text-sm text-white/80">Indicadores de crecimiento y protección patrimonial con enfoque a resultados.</p>
+      </div>
+    </div>
+
+    <!-- Barra de credenciales (tipo referencia) -->
+    <div class="border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-4 py-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-white/90 text-sm">
+        <div><span class="block text-2xl font-bold text-[var(--mm-gold)]">20+ años</span>en seguros y asistencias</div>
+        <div><span class="block text-2xl font-bold text-[var(--mm-gold)]">$65M</span>en líneas de negocio</div>
+        <div><span class="block text-2xl font-bold text-[var(--mm-gold)]">95%+</span>retención de cartera</div>
+        <div><span class="block text-2xl font-bold text-[var(--mm-gold)]">30%↑</span>crecimiento en ventas retail</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios rápidos -->
+  <section id="beneficios" class="py-12 bg-[var(--mm-white)]">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="serif text-3xl mb-6">Lo que ganas trabajando conmigo</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border bg-white">
+          <h3 class="font-semibold">Plan claro</h3>
+          <p class="mt-2 text-slate-600">Sabes qué hacer con tu dinero los próximos 90 días: ordenar, proteger y crecer.</p>
+        </div>
+        <div class="p-6 rounded-2xl border bg-white">
+          <h3 class="font-semibold">Riesgo bajo control</h3>
+          <p class="mt-2 text-slate-600">Coberturas y niveles correctos para tu realidad, no recetas genéricas.</p>
+        </div>
+        <div class="p-6 rounded-2xl border bg-white">
+          <h3 class="font-semibold">Crecimiento con sentido</h3>
+          <p class="mt-2 text-slate-600">Inversión accesible y medible. Progresas sin perder el sueño.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -127,8 +168,8 @@
     </div>
   </section>
 
-  <!-- Testimonios / Autoridad -->
-  <section id="testimonios" class="py-14">
+  <!-- Casos / Autoridad -->
+  <section id="casos" class="py-14">
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
@@ -138,22 +179,25 @@
             <li>• Renovación del 95% de cartera y retención de cuentas clave (&gt;$32M).</li>
             <li>• Cierres anuales de hasta $65M en líneas de negocio específicas.</li>
           </ul>
-          <p class="text-xs text-slate-500 mt-3">*Cifras logradas en roles previos del sector asegurador y asistencias. Se usan como referencia de experiencia y metodología.</p>
+          <p class="text-xs text-slate-500 mt-3">*Cifras logradas en roles previos del sector asegurador y asistencias.</p>
         </div>
         <div class="bg-white border rounded-2xl p-6">
-          <blockquote class="text-slate-700">“Con Mr. Moon pasé de sentir incertidumbre a tener un plan claro. Hoy sé exactamente qué hacer con mi dinero y por qué.”</blockquote>
+          <blockquote class="text-slate-700">“Con Mr. Moon pasé de incertidumbre a un plan claro. Hoy sé exactamente qué hacer con mi dinero y por qué.”</blockquote>
           <div class="mt-4 text-sm text-slate-500">— Cliente real (nombre reservado)</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Lead magnet -->
-  <section id="lead" class="py-14 bg-[var(--mm-navy)] text-white">
+  <!-- Lead magnet (azul + oro como te gustó) -->
+  <section id="lead" class="py-16 bg-[var(--mm-navy)] text-white">
     <div class="max-w-3xl mx-auto px-4 text-center">
       <h2 class="serif text-3xl">Checklist de libertad financiera</h2>
       <p class="mt-2 text-white/85">Recíbelo gratis por WhatsApp. Escribe “CHECKLIST” y te lo envío en el acto.</p>
-      <a href="https://wa.me/525532517320?text=CHECKLIST%20Mr.%20Moon" class="mt-5 inline-flex items-center justify-center bg-[var(--mm-gold)] text-slate-900 font-semibold px-6 py-3 rounded-lg shadow hover:brightness-95">Pedir por WhatsApp</a>
+      <a href="https://wa.me/525532517320?text=CHECKLIST%20Mr.%20Moon&utm_source=landing&utm_medium=lead_cta&utm_campaign=mrmoon"
+         class="mt-5 inline-flex items-center justify-center bg-[var(--mm-gold)] text-slate-900 font-semibold px-6 py-3 rounded-lg shadow hover:brightness-95">
+        Pedir por WhatsApp
+      </a>
     </div>
   </section>
 
@@ -182,19 +226,40 @@
     </div>
   </section>
 
+  <!-- CTA final -->
+  <section class="py-10 bg-[var(--mm-gray)]">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="serif text-2xl mb-3">Listo para poner tu dinero a trabajar con cabeza.</h3>
+      <a href="https://wa.me/525532517320?text=Hola%20Roberto%2C%20quiero%20agendar%20una%20asesor%C3%ADa.&utm_source=landing&utm_medium=bottom_cta&utm_campaign=mrmoon"
+         class="inline-flex items-center justify-center bg-[var(--mm-gold)] text-slate-900 font-semibold px-6 py-3 rounded-lg shadow hover:brightness-95">
+        Agendar asesoría por WhatsApp
+      </a>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-[var(--mm-navy)] text-white">
     <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-6 items-center">
       <div class="text-sm text-white/85">
         <div class="font-semibold">MR. MOON — Roberto Luna</div>
         <div>Estratega Financiero</div>
-        <div class="mt-2">CDMX • <a class="underline" href="https://wa.me/525532517320">+52 55 3251 7320</a> • <a class="underline" href="mailto:relunar26@gmail.com">relunar26@gmail.com</a></div>
+        <div class="mt-2">CDMX • <a class="underline" href="https://wa.me/525532517320">+52 55 3251 7320</a> •
+          <a class="underline" href="mailto:relunar26@gmail.com">relunar26@gmail.com</a></div>
       </div>
       <div class="md:text-right text-sm text-white/70">
         © <span id="y"></span> Mr. Moon. Todos los derechos reservados.
       </div>
     </div>
   </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/525532517320?text=Hola%20Roberto%2C%20vengo%20de%20tu%20landing.&utm_source=landing&utm_medium=fab&utm_campaign=mrmoon"
+     class="fixed bottom-5 right-5 bg-[#25D366] text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg"
+     aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.281 5.443 0 12.057 0c3.17 0 6.167 1.237 8.41 3.48a11.86 11.86 0 013.49 8.397c-.003 6.614-5.286 11.897-11.9 11.897a11.9 11.9 0 01-5.938-1.594L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.593 5.448 0 9.886-4.434 9.889-9.885.003-5.462-4.415-9.89-9.881-9.894-5.452 0-9.887 4.434-9.89 9.886-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.743-.982zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.03-.967-.272-.099-.47-.149-.669.149-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.718 2.006-1.411.248-.694.248-1.289.173-1.413z"/></svg>
+  </a>
+
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>
+
