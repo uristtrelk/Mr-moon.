@@ -1,495 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mr. Moon - Tu Brújula Financiera</title>
-  <!-- Fuentes Google: Archivo Black (títulos) y Montserrat (texto) -->
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
-  <!-- Iconos de Font Awesome para redes sociales -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Mr. Moon | Estratega Financiero</title>
+  <meta name="description" content="Asesoría financiera clara y cercana. Plan de retiro, protección patrimonial e inversión accesible con Roberto Luna (Mr. Moon)."/>
+  <meta property="og:title" content="Mr. Moon | Estratega Financiero"/>
+  <meta property="og:description" content="Tu guía para tomar decisiones financieras inteligentes."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="/img/og-mrmoon.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --primary-color: #0D1B2A;   /* Color primario (tonos sofisticados) */
-      --accent-color:  #17C3B2;   /* Color acento vibrante para llamadas a la acción */
-      --light-gray:    #F5F5F5;   /* Gris claro de fondo para secciones */
-    }
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      color: #333;
-      line-height: 1.6;
-      background: #FFF;
-    }
-    /* Encabezado (Header y navegación) */
-    header {
-      background: #FFF;
-      border-bottom: 1px solid #EEE;
-      padding: 10px 0;
-    }
-    .nav-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo img {
-      max-height: 50px;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav li {
-      display: inline-block;
-      margin-left: 20px;
-    }
-    nav a {
-      text-decoration: none;
-      font-weight: 600;
-      color: #333;
-    }
-    nav a:hover {
-      color: var(--accent-color);
-    }
-    /* Sección Hero (Portada) */
-    .hero {
-      padding: 60px 20px;
-      background: #FFF;
-    }
-    .hero .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .hero-content {
-      flex: 1 1 500px;
-      min-width: 280px;
-      padding: 20px;
-    }
-    .hero-content h1 {
-      font-family: 'Archivo Black', sans-serif;
-      color: var(--primary-color);
-      font-size: 2em;
-      line-height: 1.2;
-      margin: 0 0 20px;
-    }
-    .hero-content h2 {
-      font-size: 1.5em;
-      color: var(--primary-color);
-      margin: 0 0 10px;
-    }
-    .hero-content h2 span {
-      font-size: 0.8em;
-      font-weight: normal;
-      color: #666;
-    }
-    .hero-content ul {
-      list-style: disc;
-      margin: 10px 0 20px 20px;
-      padding: 0;
-    }
-    .hero-content ul li {
-      margin-bottom: 8px;
-    }
-    .cta-text {
-      font-weight: 600;
-      font-size: 1.1em;
-      color: var(--primary-color);
-      margin: 20px 0 10px;
-    }
-    .subscribe-form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-    .subscribe-form input[type="email"] {
-      flex: 1 1 250px;
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #CCC;
-      border-radius: 4px;
-    }
-    .subscribe-form button {
-      flex: 0 0 auto;
-      padding: 10px 20px;
-      font-size: 1em;
-      font-weight: 600;
-      color: #FFF;
-      background: var(--accent-color);
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .subscribe-form button:hover {
-      background: #14A295; /* color acento ligeramente más oscuro al hover */
-    }
-    .hero-image {
-      flex: 1 1 400px;
-      text-align: center;
-      padding: 20px;
-    }
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
-    }
-    /* Sección de Servicios */
-    .services {
-      background: var(--light-gray);
-      padding: 60px 20px;
-    }
-    .services .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .services h3 {
-      font-family: 'Archivo Black', sans-serif;
-      color: var(--primary-color);
-      font-size: 1.8em;
-      margin-bottom: 40px;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .service-item {
-      background: #FFF;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: left;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .service-item h4 {
-      font-size: 1.2em;
-      color: var(--primary-color);
-      margin-bottom: 8px;
-    }
-    .service-item p {
-      color: #555;
-      font-size: 0.95em;
-      margin: 0;
-    }
-    /* Sección de Test (Lead Magnet) */
-    .test-section {
-      padding: 60px 20px;
-      background: #FFF;
-    }
-    .test-section .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .test-content {
-      flex: 1 1 500px;
-      padding: 20px;
-    }
-    .test-content h3 {
-      font-family: 'Archivo Black', sans-serif;
-      color: var(--primary-color);
-      font-size: 1.6em;
-      margin-bottom: 20px;
-    }
-    .test-content p {
-      font-size: 1em;
-      margin-bottom: 20px;
-    }
-    .test-content .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 12px 20px;
-      font-weight: 600;
-      color: #FFF;
-      background: var(--accent-color);
-      border-radius: 4px;
-    }
-    .test-content .btn:hover {
-      background: #14A295;
-    }
-    .test-image {
-      flex: 1 1 400px;
-      text-align: center;
-      padding: 20px;
-    }
-    .test-image img {
-      max-width: 100%;
-      height: auto;
-    }
-    /* Sección de Redes Sociales */
-    .social {
-      background: var(--light-gray);
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .social .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .social h3 {
-      font-family: 'Archivo Black', sans-serif;
-      color: var(--primary-color);
-      font-size: 1.5em;
-      margin-bottom: 20px;
-    }
-    .social p {
-      font-size: 1em;
-      margin-bottom: 15px;
-      color: #333;
-    }
-    .social-links a {
-      display: inline-block;
-      margin: 0 10px;
-      text-decoration: none;
-      color: var(--primary-color);
-      font-size: 1.1em;
-    }
-    .social-links a:hover {
-      color: var(--accent-color);
-    }
-    /* Sección de Contacto */
-    .contact {
-      background: #FFF;
-      padding: 60px 20px;
-    }
-    .contact .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .contact h3 {
-      font-family: 'Archivo Black', sans-serif;
-      color: var(--primary-color);
-      font-size: 1.5em;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .contact p {
-      text-align: center;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .contact-info {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .contact-info p {
-      margin: 5px 0;
-    }
-    .contact-info a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-    .contact-info a:hover {
-      color: var(--accent-color);
-    }
-    .contact form {
-      max-width: 500px;
-      margin: 0 auto 20px auto;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .contact form input, .contact form textarea {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1em;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #CCC;
-      border-radius: 4px;
-    }
-    .contact form textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .contact form button {
-      padding: 12px;
-      font-size: 1em;
-      font-weight: 600;
-      color: #FFF;
-      background: var(--accent-color);
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .contact form button:hover {
-      background: #14A295;
-    }
-    /* Pie de página (Footer) */
-    footer {
-      background: #FFF;
-      border-top: 1px solid #EEE;
-      padding: 20px;
-      text-align: center;
-    }
-    .footer-logo img {
-      max-height: 40px;
-      margin-bottom: 10px;
-    }
-    footer p {
-      font-size: 0.9em;
-      color: #777;
-      margin: 5px 0;
-    }
-    footer a {
-      text-decoration: none;
-      color: #777;
-    }
-    footer a:hover {
-      color: var(--accent-color);
-    }
-    /* Responsividad (ajustes para pantallas pequeñas) */
-    @media (max-width: 768px) {
-      .hero .container, 
-      .test-section .container {
-        flex-direction: column;
-      }
-      .hero-image, .test-image {
-        margin-top: 30px;
-      }
-      nav li {
-        margin-left: 10px;
-      }
-    }
+    :root{
+      --mm-navy:#1F3A5F; /* azul cálido sereno */
+      --mm-gold:#D4A937; /* oro moderno */
+      --mm-gray:#F4F4F4; /* gris suave */
+      --mm-blue:#2F73B6; /* acento */
+      --mm-white:#FFFFFF;
+    }
+    body{font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';}
+    .serif{font-family:'Merriweather', Georgia, serif}
   </style>
 </head>
-<body>
-
-  <!-- Navegación principal -->
-  <header>
-    <div class="nav-wrapper">
-      <div class="logo">
-        <!-- Logo de Mr. Moon -->
-        <a href="#hero"><img src="**ruta/logo-mrmoon.png**" alt="Mr. Moon Logo" /></a>
+<body class="bg-[var(--mm-white)] text-slate-900">
+  <!-- Barra superior -->
+  <header class="w-full bg-[var(--mm-navy)] text-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- Reemplaza el src con tu logo circular -->
+        <img src="/img/logo-mrmoon.png" alt="Logo Mr. Moon" class="w-10 h-10 rounded-full object-contain bg-white p-1"/>
+        <span class="font-bold tracking-wide">MR. MOON</span>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#hero">Inicio</a></li>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="#test">Test</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
+      <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
+        <a href="#servicios" class="hover:opacity-100">Servicios</a>
+        <a href="#proceso" class="hover:opacity-100">Proceso</a>
+        <a href="#testimonios" class="hover:opacity-100">Resultados</a>
+        <a href="#faq" class="hover:opacity-100">FAQ</a>
       </nav>
+      <a href="https://wa.me/525532517320?text=Hola%20Roberto%2C%20vengo%20de%20tu%20landing.%20Quiero%20mi%20asesor%C3%ADa%20financiera." class="inline-flex items-center gap-2 bg-[var(--mm-gold)] text-slate-900 font-semibold px-4 py-2 rounded-lg shadow hover:brightness-95">
+        Agenda por WhatsApp
+      </a>
     </div>
   </header>
 
-  <!-- Sección Hero / Presentación -->
-  <section id="hero" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Cumple tus metas, protege tu patrimonio<br>y alcanza tu libertad financiera</h1>
-        <h2>Mr. Moon <span>| Roberto Luna</span></h2>
-        <ul>
-          <li>Consultor en finanzas personales y especialista en protección patrimonial con un enfoque innovador.</li>
-          <li>Construyendo una comunidad sólida de educación financiera para guiarte hacia la libertad económica.</li>
-        </ul>
-        <p class="cta-text">Comienza hoy mismo tu viaje hacia la libertad financiera:</p>
-        <p><strong>¡ÚNETE A NUESTRA COMUNIDAD!</strong><br>
-           Obtén herramientas, orientación y consejos semanales directamente en tu correo electrónico.
-        </p>
-        <form class="subscribe-form">
-          <input type="email" name="email" placeholder="Tu correo electrónico" required />
-          <button type="submit">UNIRME</button>
-        </form>
-      </div>
-      <div class="hero-image">
-        <!-- Imagen de portada / fotografía de Roberto Luna -->
-        <img src="**ruta/foto-mrmoon.png**" alt="Mr. Moon - Roberto Luna" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección Servicios -->
-  <section id="services" class="services">
-    <div class="container">
-      <h3>Servicios Financieros Personalizados</h3>
-      <div class="services-grid">
-        <div class="service-item">
-          <h4>Consultoría Financiera Personalizada</h4>
-          <p>Diagnóstico financiero, análisis de objetivos y un plan de acción a medida. Optimiza tus ingresos, controla tus gastos e inicia inversiones para un crecimiento sólido.</p>
+  <!-- Hero -->
+  <section class="bg-[var(--mm-navy)] text-white">
+    <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="serif text-4xl md:text-5xl leading-tight">La luna orientaba a los navegantes. <span class="text-[var(--mm-gold)]">Hoy orienta tus finanzas.</span></h1>
+        <p class="mt-4 text-white/90">Soy <strong>Roberto Luna</strong> (Mr. Moon). Te acompaño con claridad y estrategia para proteger tu patrimonio, construir tu retiro e invertir con cabeza.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="https://wa.me/525532517320?text=Hola%20Roberto%2C%20quiero%20agendar%20una%20asesor%C3%ADa." class="inline-flex items-center justify-center bg-[var(--mm-gold)] text-slate-900 font-semibold px-5 py-3 rounded-lg shadow hover:brightness-95">Agendar asesoría</a>
+          <a href="#lead" class="inline-flex items-center justify-center border border-white/30 text-white px-5 py-3 rounded-lg hover:bg-white/10">Descargar checklist</a>
         </div>
-        <div class="service-item">
-          <h4>Seguros y Protección Patrimonial</h4>
-          <p>Soluciones en seguros de vida, salud y patrimonio. Protege tu futuro y el de tu familia con planes hechos a la medida de tus necesidades y perfil de riesgo.</p>
-        </div>
-        <div class="service-item">
-          <h4>Plan de Retiro y Libertad Financiera</h4>
-          <p>Estrategias a mediano y largo plazo para generar ingresos pasivos y asegurar tu estabilidad económica. Simulaciones de escenarios y ajustes periódicos para alcanzar tus metas de retiro.</p>
-        </div>
-        <div class="service-item">
-          <h4>Estrategias de Inversión Accesible</h4>
-          <p>Exploración de alternativas de inversión (fondos, CETES, planes vinculados a seguros). Te acompañamos con educación continua para que entiendas y confíes en cada paso del proceso.</p>
+        <div class="mt-6 grid grid-cols-3 gap-4 text-sm text-white/80">
+          <div><span class="block text-2xl font-bold text-[var(--mm-gold)]">20+ años</span>en seguros y asistencias</div>
+          <div><span class="block text-2xl font-bold text-[var(--mm-gold)]">$65M</span>manejo de líneas de negocio</div>
+          <div><span class="block text-2xl font-bold text-[var(--mm-gold)]">95%+</span>retención de cartera</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Sección Test / Recurso gratuito -->
-  <section id="test" class="test-section">
-    <div class="container">
-      <div class="test-content">
-        <h3>¡Descubre tu Perfil Financiero!</h3>
-        <p>Antes de tomar decisiones importantes, es clave conocer tu situación y objetivos. Realiza nuestro diagnóstico financiero gratuito y obtén un plan personalizado acorde a tu perfil de inversionista.</p>
-        <a href="#" class="btn">Iniciar Test</a>
-      </div>
-      <div class="test-image">
-        <!-- Ilustración para la sección del test -->
-        <img src="**ruta/ilustracion-test.png**" alt="Ilustración - Test Financiero" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección Redes Sociales -->
-  <section class="social">
-    <div class="container">
-      <h3>Redes Sociales</h3>
-      <p>¡Conéctate con Mr. Moon en redes sociales y no te pierdas las últimas novedades!</p>
-      <div class="social-links">
-        <a href="https://instagram.com/mrmoon.finanzas" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="**https://linkedin.com/in/roberto-luna**" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="**https://tiktok.com/@mrmoon.finanzas**" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      <div class="bg-[var(--mm-gray)]/40 rounded-2xl p-6 border border-white/10">
+        <!-- Mock gráfico ascendente + luna -->
+        <svg viewBox="0 0 400 300" class="w-full h-auto">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0%" stop-color="#D4A937"/>
+              <stop offset="100%" stop-color="#2F73B6"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="400" height="300" fill="#0f2340" rx="16"/>
+          <circle cx="320" cy="60" r="34" fill="#D4A937"/>
+          <circle cx="330" cy="60" r="34" fill="#0f2340"/>
+          <polyline points="40,240 110,200 170,210 230,160 290,170 350,120" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round"/>
+          <polygon points="350,120 340,130 360,130" fill="#D4A937"/>
+        </svg>
+        <p class="mt-3 text-sm text-white/80">Indicadores de crecimiento y protección patrimonial con enfoque a resultados.</p>
       </div>
     </div>
   </section>
 
-  <!-- Sección de Contacto -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h3>Contacto</h3>
-      <p>Envíame un mensaje directo llenando el siguiente formulario:</p>
-      <form action="mailto:contacto@mrmoon.com" method="POST" enctype="text/plain">
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-        <input type="email" name="correo" placeholder="Tu correo" required />
-        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-      <div class="contact-info">
-        <p>O si lo prefieres, contáctame por correo o WhatsApp:</p>
-        <p><a href="mailto:contacto@mrmoon.com"><i class="fa fa-envelope"></i> contacto@mrmoon.com</a></p>
-        <p><a href="https://wa.me/525532517320" target="_blank"><i class="fa fa-whatsapp"></i> +52 55 3251 7320</a></p>
+  <!-- Servicios -->
+  <section id="servicios" class="py-14 bg-[var(--mm-white)]">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="serif text-3xl mb-6">Servicios</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border bg-white">
+          <h3 class="font-semibold">Consultoría Financiera Personalizada</h3>
+          <p class="mt-2 text-slate-600">Diagnóstico, objetivos y plan de acción claro. Optimiza ingresos, gastos e inversión inicial.</p>
+        </div>
+        <div class="p-6 rounded-2xl border bg-white">
+          <h3 class="font-semibold">Protección Patrimonial (Seguros)</h3>
+          <p class="mt-2 text-slate-600">Vida, salud y GMM a la medida de tu perfil de riesgo y metas.</p>
+        </div>
+        <div class="p-6 rounded-2xl border bg-white">
+          <h3 class="font-semibold">Plan de Retiro & Inversión Accesible</h3>
+          <p class="mt-2 text-slate-600">Estrategia a mediano/largo plazo. Simulaciones y ajustes anuales.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Pie de página -->
-  <footer>
-    <p class="footer-logo">
-      <!-- Logo reducido en el footer -->
-      <img src="**ruta/logo-mrmoon.png**" alt="Mr. Moon" />
-    </p>
-    <p><a href="#">Aviso de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
-    <p>&copy; 2025 Mr. Moon. Todos los derechos reservados.</p>
+  <!-- Proceso -->
+  <section id="proceso" class="py-14 bg-[var(--mm-gray)]">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="serif text-3xl mb-6">Cómo trabajamos</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border">
+          <span class="text-xs font-semibold text-[var(--mm-blue)]">Paso 1</span>
+          <h3 class="font-semibold mt-1">Diagnóstico</h3>
+          <p class="mt-2 text-slate-600">Revisión de tu situación actual y objetivos.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border">
+          <span class="text-xs font-semibold text-[var(--mm-blue)]">Paso 2</span>
+          <h3 class="font-semibold mt-1">Plan</h3>
+          <p class="mt-2 text-slate-600">Estrategia personalizada con escenarios y prioridades.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border">
+          <span class="text-xs font-semibold text-[var(--mm-blue)]">Paso 3</span>
+          <h3 class="font-semibold mt-1">Acción</h3>
+          <p class="mt-2 text-slate-600">Implementación, seguimiento y ajustes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios / Autoridad -->
+  <section id="testimonios" class="py-14">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="serif text-3xl mb-4">Resultados que generan confianza</h2>
+          <ul class="space-y-3 text-slate-700">
+            <li>• Crecimiento del 30% en ventas retail y reducción de rotación de 112% a 11% en 8 meses.</li>
+            <li>• Renovación del 95% de cartera y retención de cuentas clave (&gt;$32M).</li>
+            <li>• Cierres anuales de hasta $65M en líneas de negocio específicas.</li>
+          </ul>
+          <p class="text-xs text-slate-500 mt-3">*Cifras logradas en roles previos del sector asegurador y asistencias. Se usan como referencia de experiencia y metodología.</p>
+        </div>
+        <div class="bg-white border rounded-2xl p-6">
+          <blockquote class="text-slate-700">“Con Mr. Moon pasé de sentir incertidumbre a tener un plan claro. Hoy sé exactamente qué hacer con mi dinero y por qué.”</blockquote>
+          <div class="mt-4 text-sm text-slate-500">— Cliente real (nombre reservado)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead magnet -->
+  <section id="lead" class="py-14 bg-[var(--mm-navy)] text-white">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="serif text-3xl">Checklist de libertad financiera</h2>
+      <p class="mt-2 text-white/85">Recíbelo gratis por WhatsApp. Escribe “CHECKLIST” y te lo envío en el acto.</p>
+      <a href="https://wa.me/525532517320?text=CHECKLIST%20Mr.%20Moon" class="mt-5 inline-flex items-center justify-center bg-[var(--mm-gold)] text-slate-900 font-semibold px-6 py-3 rounded-lg shadow hover:brightness-95">Pedir por WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-14">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="serif text-3xl mb-6">Preguntas frecuentes</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white border rounded-2xl p-6">
+          <h3 class="font-semibold">¿La asesoría es solo para personas con mucho capital?</h3>
+          <p class="mt-2 text-slate-600">No. Diseñamos estrategias según tu realidad: empezamos por ordenar, proteger y luego crecer.</p>
+        </div>
+        <div class="bg-white border rounded-2xl p-6">
+          <h3 class="font-semibold">¿Cómo agendo?</h3>
+          <p class="mt-2 text-slate-600">Entra por WhatsApp y agenda tu sesión inicial. También podemos coordinar por calendario si lo prefieres.</p>
+        </div>
+        <div class="bg-white border rounded-2xl p-6">
+          <h3 class="font-semibold">¿Qué recibo en la primera sesión?</h3>
+          <p class="mt-2 text-slate-600">Un diagnóstico rápido de tu situación y los 3 pasos inmediatos para mejorar.</p>
+        </div>
+        <div class="bg-white border rounded-2xl p-6">
+          <h3 class="font-semibold">¿Puedo solo contratar seguros?</h3>
+          <p class="mt-2 text-slate-600">Sí. Te ayudamos a elegir coberturas y niveles adecuados para ti y tu familia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--mm-navy)] text-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-6 items-center">
+      <div class="text-sm text-white/85">
+        <div class="font-semibold">MR. MOON — Roberto Luna</div>
+        <div>Estratega Financiero</div>
+        <div class="mt-2">CDMX • <a class="underline" href="https://wa.me/525532517320">+52 55 3251 7320</a> • <a class="underline" href="mailto:relunar26@gmail.com">relunar26@gmail.com</a></div>
+      </div>
+      <div class="md:text-right text-sm text-white/70">
+        © <span id="y"></span> Mr. Moon. Todos los derechos reservados.
+      </div>
+    </div>
   </footer>
-
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>
