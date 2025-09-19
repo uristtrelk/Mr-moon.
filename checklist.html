@@ -118,7 +118,7 @@
       </div>
 
       <!-- Hidden form para Formspree -->
-      <form id="hiddenForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="hidden">
+      <form id="hiddenForm" action="https://formspree.io/f/xzzandjb" method="POST" class="hidden">
         <input type="hidden" name="nombre" id="f_nombre">
         <input type="hidden" name="email" id="f_email">
         <input type="hidden" name="phone" id="f_phone">
@@ -185,7 +185,7 @@
       document.getElementById('f_score').value  = score;
       document.getElementById('f_detalle').value= marcadas;
 
-      if(form.action.includes("YOUR_FORMSPREE_ID")){
+      if(form.action.includes("https://formspree.io/f/xzzandjb")){
         alert("Configura tu Formspree ID en el atributo action del formulario oculto para guardar leads.");
         return;
       }
