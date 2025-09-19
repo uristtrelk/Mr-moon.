@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Checklist de Libertad Financiera | Mr. Moon</title>
+  <meta name="description" content="Marca las casillas y descubre tu nivel de claridad financiera.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --mm-navy:#1F3A5F; /* azul cálido sereno */
+      --mm-gold:#D4A937; /* oro moderno */
+      --mm-gray:#F4F4F4; /* gris suave */
+      --mm-blue:#2F73B6; /* acento */
+      --mm-white:#FFFFFF;
+    }
+    body{font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto;}
+    .serif{font-family:'Merriweather',Georgia,serif}
+  </style>
+</head>
+<body class="bg-[var(--mm-white)] text-slate-900">
+  <!-- Header simple -->
+  <header class="w-full bg-[var(--mm-navy)] text-white">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="./" class="flex items-center gap-3">
+        <img src="img/logo-mrmoon.png" alt="Mr. Moon" class="w-9 h-9 rounded-full bg-white p-1">
+        <span class="font-bold tracking-wide">MR. MOON</span>
+      </a>
+      <a href="./#lead" class="text-white/80 hover:text-white text-sm">Volver a la landing</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-[var(--mm-navy)] text-white">
+    <div class="max-w-5xl mx-auto px-4 py-10">
+      <h1 class="serif text-3xl md:text-4xl">Checklist de Libertad Financiera</h1>
+      <p class="mt-2 text-white/85 max-w-2xl">
+        Marca las casillas ✅ y conoce tu resultado en 30 segundos. Al final podrás hablar con Mr. Moon y recibir tu plan.
+      </p>
+    </div>
+  </section>
+
+  <!-- Checklist -->
+  <main class="max-w-5xl mx-auto px-4 py-10">
+    <form id="checklistForm" class="grid gap-4 bg-white p-6 rounded-2xl border">
+      <div class="grid gap-2">
+        <label class="inline-flex items-start gap-3">
+          <input type="checkbox" name="c1" class="mt-1">
+          <span><b>Presupuesto claro:</b> sé cuánto entra, cuánto gasto y cuánto ahorro cada mes.</span>
+        </label>
+        <label class="inline-flex items-start gap-3">
+          <input type="checkbox" name="c2" class="mt-1">
+          <span><b>Fondo de emergencia:</b> tengo entre 3 y 6 meses de gastos, líquidos.</span>
+        </label>
+        <label class="inline-flex items-start gap-3">
+          <input type="checkbox" name="c3" class="mt-1">
+          <span><b>Deuda controlada:</b> no pago intereses caros en tarjetas/créditos.</span>
+        </label>
+        <label class="inline-flex items-start gap-3">
+          <input type="checkbox" name="c4" class="mt-1">
+          <span><b>Protección patrimonial:</b> cuento con seguros clave (vida, salud, GMM).</span>
+        </label>
+        <label class="inline-flex items-start gap-3">
+          <input type="checkbox" name="c5" class="mt-1">
+          <span><b>Retiro en marcha:</b> aporto a Afore/plan personal u otro instrumento de largo plazo.</span>
+        </label>
+        <label class="inline-flex items-start gap-3">
+          <input type="checkbox" name="c6" class="mt-1">
+          <span><b>Inversión activa:</b> ya tengo dinero trabajando para mí (aunque sea poco).</span>
+        </label>
+        <label class="inline-flex items-start gap-3">
+          <input type="checkbox" name="c7" class="mt-1">
+          <span><b>Metas claras:</b> tengo objetivos a 5/10/20 años y un plan por escrito.</span>
+        </label>
+      </div>
+
+      <!-- Datos mínimos (opcional: quita si no quieres fricción) -->
+      <div class="grid md:grid-cols-3 gap-3 pt-2">
+        <input type="text" id="nombre" placeholder="Tu nombre" class="border rounded-lg px-3 py-2">
+        <input type="email" id="email" placeholder="Tu email" class="border rounded-lg px-3 py-2">
+        <input type="tel" id="phone" placeholder="Tu WhatsApp" class="border rounded-lg px-3 py-2">
+      </div>
+
+      <div class="flex flex-wrap gap-3 pt-2">
+        <button type="button" onclick="calcularResultado()"
+                class="bg-[var(--mm-gold)] text-slate-900 font-semibold px-5 py-3 rounded-lg shadow hover:brightness-95">
+          Ver mi resultado
+        </button>
+        <button type="reset" class="border px-5 py-3 rounded-lg hover:bg-slate-50">Reiniciar</button>
+      </div>
+
+      <!-- Resultado -->
+      <div id="resultadoCard" class="hidden mt-4 p-5 rounded-xl border bg-[var(--mm-gray)]">
+        <h2 class="serif text-2xl mb-1">Tu resultado</h2>
+        <p id="resultadoTexto" class="text-slate-700"></p>
+
+        <div class="mt-4 flex flex-wrap gap-3">
+          <!-- WhatsApp / ManyChat CTA -->
+          <a id="ctaWhatsApp" href="#"
+             class="inline-flex items-center justify-center bg-[#25D366] text-white font-semibold px-5 py-3 rounded-lg shadow hover:brightness-95"
+             target="_blank" rel="noopener">
+            Hablar por WhatsApp
+          </a>
+
+          <!-- Formspree (opcional) para guardar lead sin backend -->
+          <button type="button" onclick="enviarFormspree()"
+                  class="inline-flex items-center justify-center bg-[var(--mm-blue)] text-white font-semibold px-5 py-3 rounded-lg shadow hover:brightness-95">
+            Guardar mi resultado
+          </button>
+        </div>
+
+        <p class="mt-3 text-sm text-slate-500">
+          *Tip:* si no recibes respuesta en WhatsApp, escribe la palabra <b>CHECKLIST</b>.
+        </p>
+      </div>
+
+      <!-- Hidden form para Formspree -->
+      <form id="hiddenForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="hidden">
+        <input type="hidden" name="nombre" id="f_nombre">
+        <input type="hidden" name="email" id="f_email">
+        <input type="hidden" name="phone" id="f_phone">
+        <input type="hidden" name="score" id="f_score">
+        <input type="hidden" name="detalle" id="f_detalle">
+        <input type="hidden" name="fuente" value="Checklist GitHub Pages">
+      </form>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--mm-navy)] text-white">
+    <div class="max-w-5xl mx-auto px-4 py-8 text-sm text-white/80">
+      © <span id="y"></span> Mr. Moon. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function calcularResultado(){
+      const checks = Array.from(document.querySelectorAll('#checklistForm input[type="checkbox"]'));
+      const marcadas = checks.filter(c => c.checked);
+      const score = marcadas.length;
+
+      let mensaje = "";
+      if(score <= 3){
+        mensaje = "Tienes " + score + " de 7. Estás improvisando con tu dinero: empecemos por ordenar presupuesto, deuda y protección básica.";
+      } else if(score <= 5){
+        mensaje = "Tienes " + score + " de 7. Vas en camino, pero hay áreas críticas por resolver. Podemos optimizar rápido para reducir riesgo.";
+      } else {
+        mensaje = "Tienes " + score + " de 7. Buena base: ahora toca escalar inversión y consolidar tu plan de retiro.";
+      }
+
+      // Pintar resultado
+      document.getElementById('resultadoTexto').textContent = mensaje;
+      document.getElementById('resultadoCard').classList.remove('hidden');
+
+      // Preparar mensaje para WhatsApp (incluye score y casillas marcadas)
+      const seleccion = marcadas.map((c,i)=>"P"+(i+1)).join(", ");
+      const nombre = document.getElementById('nombre').value || "";
+      const baseMsg = `Hola Roberto, hice el *Checklist*. Tengo ${score} de 7. Casillas: ${seleccion}. ${nombre ? "Soy " + nombre + ". " : ""}Palabra clave: CHECKLIST`;
+      const encoded = encodeURIComponent(baseMsg);
+      const utm = "&utm_source=checklist&utm_medium=cta_whatsapp&utm_campaign=mrmoon";
+      const wa = "https://wa.me/525532517320?text="+encoded+utm;
+      const link = document.getElementById('ctaWhatsApp');
+      link.href = wa;
+
+      // Guardar en localStorage (por si vuelve)
+      localStorage.setItem('mm_score', score);
+      localStorage.setItem('mm_checks', seleccion);
+    }
+
+    // Enviar a Formspree (opcional)
+    function enviarFormspree(){
+      const form = document.getElementById('hiddenForm');
+      const checks = Array.from(document.querySelectorAll('#checklistForm input[type="checkbox"]'));
+      const marcadas = checks.map((c,idx)=> (c.checked ? `Paso${idx+1}:✓` : `Paso${idx+1}:x`)).join(" | ");
+      const score = checks.filter(c=>c.checked).length;
+
+      document.getElementById('f_nombre').value = document.getElementById('nombre').value;
+      document.getElementById('f_email').value  = document.getElementById('email').value;
+      document.getElementById('f_phone').value  = document.getElementById('phone').value;
+      document.getElementById('f_score').value  = score;
+      document.getElementById('f_detalle').value= marcadas;
+
+      if(form.action.includes("YOUR_FORMSPREE_ID")){
+        alert("Configura tu Formspree ID en el atributo action del formulario oculto para guardar leads.");
+        return;
+      }
+      form.submit();
+      alert("¡Listo! Tu resultado fue guardado. Te contacto pronto ✉️");
+    }
+  </script>
+</body>
+</html>
